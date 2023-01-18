@@ -1,0 +1,24 @@
+
+name: Update Json
+
+on:
+  schedule:
+    - cron: '0 1 * * *'
+
+jobs:
+  update-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run index.js script
+        run: |
+          # Add the commands to run your Node.js script here
+          npm install
+          node index.js
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "neeravnadla@gmail.com"
+          git config --global user.name "neeravnadla"
+          git add .
+          git commit -m "Update repository"
+          git push origin master
