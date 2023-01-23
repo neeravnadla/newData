@@ -72,6 +72,3 @@ const data = JSON.parse(fs.readFileSync('data.json'));
   fs.writeFileSync('data.json', JSON.stringify(data));
   await browser.close();
 })();
-
-
-// cool
